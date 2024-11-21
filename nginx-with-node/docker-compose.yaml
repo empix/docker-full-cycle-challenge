@@ -3,7 +3,7 @@ services:
     build:
       context: ./node
     container_name: app
-    entrypoint: dockerize -wait tcp://db:3306 -timeout 20s node index.js
+    entrypoint: bash -c "npm install && dockerize -wait tcp://db:3306 -timeout 20s node index.js"
     networks:
       - fullcycle
     volumes:
